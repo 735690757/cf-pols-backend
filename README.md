@@ -18,6 +18,7 @@ MongoDB 作为核心存储，配合 Redis 作为缓存，使用 SpringBoot 框�
 2. 首页
    ![首页.png](ReadMEImg/%E9%A6%96%E9%A1%B5.png)
 3. 学习界面
+
    ![学习.png](ReadMEImg/%E5%AD%A6%E4%B9%A0.png)
 4. 充值
    ![充值.png](ReadMEImg/%E5%85%85%E5%80%BC.png)
