@@ -1,0 +1,97 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: cf-pols-backend
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+      enabled: true
+  ai:
+    openai:
+      api-key: sk-ergvewewwedvewvwdvwed
+      base-url: https://api.siliconflow.cn
+      chat:
+        options:
+          model: Qwen/Qwen2.5-7B-Instruct
+    vectorstore:
+      milvus:
+        client:
+          host: localhost
+          port: 19530
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cf-pols-db?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  data:
+    mongodb:
+      url: mongodb://localhost:27017/
+      database:
+        pols: cf-pols-mongodb
+    redis:
+      database: 7
+      host: 127.0.0.1
+      port: 6379
+      timeout: 10s
+      lettuce:
+        pool:
+          max-active: 200
+          max-wait: -1ms
+          min-idle: 0
+          max-idle: 10
+# MySQL日志
+logging:
+  level:
+    com.karrycode.cfpolsbackend.mapper: debug
+# 端口号
+server:
+  port: 8080
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    #  日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#   minio
+minio:
+  endpoint: http://127.0.0.1:9090
+  accessKey: minioadmin
+  secretKey: minioadmin
+  bucketName: cf-pols-minio
+
+#  sa-token配置
+sa-token:
+  is-log: true
+  is-color-log: true
+  token-style: uuid
+
+#  alipay
+alipay:
+  # 支付宝应用ID
+  appId: 912312312313
+  # 商户私钥
+  merchantPrivateKey: 123123121231233
+  # 支付宝公钥
+  alipayPublicKey:  12312312313123
+  # 支付完成后的异步通知地址，用于接收支付结果通知
+  notifyUrl:     http://feeqqefqefqe.cc/alipay/notify
+  # 支付成功后返回的页面地址（同步回调）
+  returnUrl: http://localhost:5173/student/recharge
+  # 签名方式
+  signType: RSA2
+  charset: utf-8
+  # 支付宝网关地址
+  gatewayUrl: https://openapi-sandbox.dl.alipaydev.com/gateway.do
+
+my:
+  db:
+    host: localhost
+    user: root
+    password: 123456
